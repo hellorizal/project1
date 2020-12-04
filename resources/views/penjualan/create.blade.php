@@ -1,6 +1,8 @@
-@extends('main')
+@extends('layouts.app')
 
 @section('content')
+
+<div class="container">
 <section class="content-header">
   <div class="container-fluid">
     <div class="row mb-2">
@@ -9,24 +11,29 @@
       </div>
       <div class="col-sm-6">
         <ol class="breadcrumb float-sm-right">
-          <li class="breadcrumb-item"><a href="{{ url('penjualan') }}">Home</a></li>
+          <li class="breadcrumb-item"><a href="{{ url('master') }}">Master</a></li>
           <li class="breadcrumb-item active">Penjualan</li>
         </ol>
       </div>
     </div>
   </div><!-- /.container-fluid -->
 </section>
-<div class="container">
-    <div class="row justify-content-center">
-        <div class="col-md-8">
+    <div class="row">
+        <div class="col-md-4">
             <div class="card">
                 <div class="card-header">Penjualan</div>
-
+                <div class="card-body">
+                    @if (session('success'))
+                        <div class="alert alert-success">
+                            {{ session('success') }}
+                        </div>
+                    @endif
+                </div>
                 <div class="card-body">
                     <form method="POST" action="{{ route('penjualan.index') }}">
                         @csrf
 
-                        <div class="form-group row">
+                        {{-- <div class="form-group row">
                             <label for="nofaktur" class="col-md-4 col-form-label text-md-right">No Faktur</label>
 
                             <div class="col-md-6">
@@ -38,7 +45,7 @@
                                     </span>
                                 @enderror
                             </div>
-                        </div>
+                        </div> --}}
 
                         <div class="form-group row">
                             <label for="namakonsumen" class="col-md-4 col-form-label text-md-right">Nama Konsumen</label>
@@ -88,6 +95,47 @@
                             </div>
                         </div>
                     </form>
+                </div>
+            </div>
+        </div>
+    {{-- </div> --}}
+    {{-- <div class="row"> --}}
+        <div class="col-md-8">
+            <div class="card">
+                <div class="card-header">Data</div>
+                <div class="card-body">
+                    @if (session('success'))
+                        <div class="alert alert-success">
+                            {{ session('success') }}
+                        </div>
+                    @endif
+                </div>
+                <div class="card-body">
+                    <table class="table table-border table-striped">
+                        <tr>
+                            {{-- <th>No</th> --}}
+                            <th>Tanggal Faktur</th>
+                            <th>No Faktur</th>
+                            <th>Nama Konsumen</th>
+                            <th>Nama Barang</th>
+                            <th>Jumlah</th>
+                            <th>Harga Satuan</th>
+                            <th>Harga Total</th>
+                        </tr>
+                        @foreach ($penjualan as $no => $item)
+                        <tr>
+                            {{-- <td>{{ $penjualan->firstItem()+$no }}</td> --}}
+                            <td>{{ $item->created_at->format('d M Y') }}</td>
+                            <td>{{ $item->nofaktur }}</td>
+                            <td>{{ $item->namakonsumen }}</td>
+                            <td>{{ $item->barang->namabarang }}</td>
+                            <td>{{ $item->jumlah }}</td>
+                            <td>Rp.{{ number_format($item['hargajual'],0,',','.') }}</td>
+                            <td>Rp.{{ number_format($item['total'],0,',','.') }}</td>
+                        </tr>
+                        @endforeach
+                    </table>
+                    {{ $penjualan->links() }}
                 </div>
             </div>
         </div>

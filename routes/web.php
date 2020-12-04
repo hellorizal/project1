@@ -1,5 +1,6 @@
 <?php
 
+use App\Http\Controllers\BarangController;
 use Illuminate\Support\Facades\Route;
 
 /*
@@ -24,6 +25,7 @@ Route::get('/home', 'HomeController@index')->name('home');
 Route::resource('barang', 'BarangController');
 Route::resource('penjualan', 'PenjualanController');
 
+Route::get('master', 'BarangController@show');
 // Route::get('/master', function () {
 //     return view('master');
 // });

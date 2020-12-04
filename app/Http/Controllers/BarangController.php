@@ -58,10 +58,11 @@ class BarangController extends Controller
      * @param  \App\Barang  $barang
      * @return \Illuminate\Http\Response
      */
-    public function show(Barang $barang)
+    public function show()
     {
-        // $barang=Barang::paginate(5);
-        // return view('master', compact('barang'));
+        $barang=Barang::paginate(5);
+        $penjualan=Penjualan::paginate(5);
+        return view('master', compact('barang','penjualan'));
     }
 
     /**
