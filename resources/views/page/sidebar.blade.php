@@ -66,12 +66,12 @@
                   <p>Add Barang</p>
                 </a>
               </li>
-              <li class="nav-item">
+              {{-- <li class="nav-item">
                 <a href="{{url('penjualan/create')}}" class="nav-link {{ Request::is('penjualan/create')? 'active':''}}">
                   <i class="far fa-circle nav-icon"></i>
                   <p>Penjualan</p>
                 </a>
-              </li>
+              </li> --}}
             </ul>
           </li>
           {{-- <li class="nav-header">More</li>

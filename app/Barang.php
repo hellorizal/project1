@@ -8,7 +8,8 @@ class Barang extends Model
 {
     protected $fillable = ['barang_id', 'namabarang', 'hargajual', 'hargabeli', 'satuan', 'kategory'];
 
-    public function penjualan(){
+    public function penjualan()
+    {
         return $this->hasMany('App\Penjualan');
     }
 }

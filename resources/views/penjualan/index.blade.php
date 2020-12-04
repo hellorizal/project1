@@ -22,14 +22,14 @@
             <div class="card">
                 <div class="card-header">Data Penjualan</div>
 
-                <div class="card-body">
+                {{-- <div class="card-body">
                     @if (session('success'))
                         <div class="alert alert-success">
                             {{ session('success') }}
                         </div>
                     @endif
                 <a href="{{ route('penjualan.create') }}" class="btn btn-primary">add new</a>
-                </div>
+                </div> --}}
                 <div class="card-body">
                     <table class="table table-border table-striped">
                         <tr>

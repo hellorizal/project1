@@ -85,8 +85,9 @@
                 </div>
 
                 <div class="links">
-                    <a href="{{ route('barang.index') }}">Barang</a>
-                    <a href="{{ route('penjualan.index') }}">Penjualan</a>
+                    <a href="{{ route('barang.index') }}">admin</a>
+                    <a href="{{ url('master') }}">Master Barang</a>
+                    <a href="{{ route('penjualan.create') }}">Penjualan</a>
                 </div>
             </div>
         </div>
