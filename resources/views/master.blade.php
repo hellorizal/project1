@@ -27,6 +27,7 @@
                         </tr>
                          @endforeach
                     </table>
+                    {{ $barang->links() }}
                 </div>
             </div>
         </div>

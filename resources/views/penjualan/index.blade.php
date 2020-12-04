@@ -64,7 +64,7 @@
                         </tr>
                         @endforeach
                     </table>
-
+                    {{ $penjualan->links() }}
                 </div>
             </div>
         </div>
